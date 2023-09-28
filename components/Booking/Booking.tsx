@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import AutoComplete from "./AutoComplete";
 
 const Booking = () => {
   return (
-    <div>Booking</div>
-  )
-}
+    <div>
+      <AutoComplete />
+    </div>
+  );
+};
 
-export default Booking
+export default Booking;
