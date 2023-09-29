@@ -5,7 +5,10 @@ const AutoComplete = () => {
   const [address, setAddress] = useState<any>("");
   const [suggestions, setSuggestions] = useState<any[]>([]);
   useEffect(() => {
-    getAdress();
+    const delayDebonce = setTimeout(() => {
+      getAdress();
+    }, 1000);
+    return () => clearTimeout(delayDebonce);
   }, [address]);
 
   const getAdress = async () => {
@@ -23,7 +26,7 @@ const AutoComplete = () => {
         <input
           type="text"
           placeholder="Where From?"
-          className="bg-white p-1 border-[1px] w-full rounded-md outline-none focus:ring-2 focus:ring-blue-400"
+          className="bg-white p-1 border-[1px] w-full rounded-md outline-none focus:ring-2 focus:ring-blue-400 text-black"
           onChange={(e: any) => setAddress(e.target.value)}
         />
       </div>
